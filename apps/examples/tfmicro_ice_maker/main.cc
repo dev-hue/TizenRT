@@ -19,13 +19,22 @@ limitations under the License.
 #include <cstdio>
 #include <debug.h>
 #include <tinyara/init.h>
+#include <time.h>
 
 extern "C"
 {
-  int hello_tfmicro_main(int argc, char* argv[]) {
-    setup();
-    while (true) {
-      loop();
+  int tfmicro_ice_maker_main(int argc, char* argv[]) {
+    clock_t start, end;
+    if (!setup()) {
+      printf("File does not exist\n");
+      return -1;
+    }
+    start = clock();
+    while (loop()) { }
+    printf("Inference Time: %f seconds\n", (double)(clock() - start) / CLOCKS_PER_SEC);
+    while (1)
+    {
+      sleep(1);
     }
   }
 }

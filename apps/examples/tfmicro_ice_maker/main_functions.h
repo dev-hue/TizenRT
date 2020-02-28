@@ -13,15 +13,16 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ==============================================================================*/
 
-// This is a standard TensorFlow Lite model file that has been converted into a
-// C data array, so it can be easily compiled into a binary for devices that
-// don't have a file system. It was created using the command:
-// xxd -i sine_model.tflite > sine_model_data.cc
+#ifndef TENSORFLOW_LITE_MICRO_EXAMPLES_HELLO_WORLD_MAIN_FUNCTIONS_H_
+#define TENSORFLOW_LITE_MICRO_EXAMPLES_HELLO_WORLD_MAIN_FUNCTIONS_H_
 
-#ifndef TENSORFLOW_LITE_MICRO_EXAMPLES_HELLO_WORLD_SINE_MODEL_DATA_H_
-#define TENSORFLOW_LITE_MICRO_EXAMPLES_HELLO_WORLD_SINE_MODEL_DATA_H_
+// Initializes all data needed for the example. The name is important, and needs
+// to be setup() for Arduino compatibility.
+bool setup();
 
-extern const unsigned char g_sine_model_data[];
-extern const int g_sine_model_data_len;
+// Runs one iteration of data gathering and inference. This should be called
+// repeatedly from the application code. The name needs to be loop() for Arduino
+// compatibility.
+bool loop();
 
-#endif  // TENSORFLOW_LITE_MICRO_EXAMPLES_HELLO_WORLD_SINE_MODEL_DATA_H_
+#endif  // TENSORFLOW_LITE_MICRO_EXAMPLES_HELLO_WORLD_MAIN_FUNCTIONS_H_

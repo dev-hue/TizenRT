@@ -16,6 +16,6 @@
 #
 ###########################################################################
 
-ifeq ($(CONFIG_EXAMPLES_HELLO_TFMICRO),y)
-CONFIGURED_APPS += examples/hello_tfmicro
+ifeq ($(CONFIG_EXAMPLES_ICE_MAKER_TFMICRO),y)
+CONFIGURED_APPS += examples/tfmicro_ice_maker
 endif

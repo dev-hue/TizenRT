@@ -13,7 +13,15 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ==============================================================================*/
 
-#include "constants.h"
+// This is a standard TensorFlow Lite model file that has been converted into a
+// C data array, so it can be easily compiled into a binary for devices that
+// don't have a file system. It was created using the command:
+// xxd -i sine_model.tflite > sine_model_data.cc
 
-// This is a small number so that it's easy to read the logs
-const int kInferencesPerCycle = 20;
+#ifndef TENSORFLOW_LITE_MICRO_EXAMPLES_HELLO_WORLD_SINE_MODEL_DATA_H_
+#define TENSORFLOW_LITE_MICRO_EXAMPLES_HELLO_WORLD_SINE_MODEL_DATA_H_
+
+extern const unsigned char g_ice_maker_model_data[];
+extern const int g_ice_maker_model_data_len;
+
+#endif  // TENSORFLOW_LITE_MICRO_EXAMPLES_HELLO_WORLD_SINE_MODEL_DATA_H_

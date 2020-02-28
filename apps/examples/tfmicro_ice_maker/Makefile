@@ -23,14 +23,14 @@ include $(APPDIR)/Make.defs
 CXXEXT ?= .cc
 # Hello, Tensorflow Lite Micro! C++ Example
 
-APPNAME    = hello_tfmicro
+APPNAME    = tfmicro_ice_maker
 FUNCNAME   = $(APPNAME)_main
 THREADEXEC = TASH_EXECMD_ASYNC
 
 # Hello, Tensorflow Lite Micro! C++ Example
 ASRCS		=
 CSRCS		=
-CXXSRCS		= main_functions.cc output_handler.cc sine_model_data.cc constants.cc
+CXXSRCS		= main_functions.cc ice_maker_model_data.cc
 MAINSRC		= main.cc
 
 CXXFLAGS	+= -I$(TOPDIR)/../external/tfmicro
@@ -63,8 +63,8 @@ else
 endif
 endif
 
-CONFIG_EXAMPLES_HELLO_TFMICRO_PROGNAME ?= hello_tfmicro$(EXEEXT)
-PROGNAME	= $(CONFIG_EXAMPLES_HELLO_TFMICRO_PROGNAME)
+CONFIG_EXAMPLES_ICE_MAKER_TFMICRO_PROGNAME ?= tfmicro_ice_maker$(EXEEXT)
+PROGNAME	= $(CONFIG_EXAMPLES_ICE_MAKER_TFMICRO_PROGNAME)
 
 ROOTDEPPATH	= --dep-path .
 
@@ -109,7 +109,7 @@ install:
 
 endif
 
-ifeq ($(CONFIG_BUILTIN_APPS)$(CONFIG_EXAMPLES_HELLO_TFMICRO),yy)
+ifeq ($(CONFIG_BUILTIN_APPS)$(CONFIG_EXAMPLES_ICE_MAKER_TFMICRO),yy)
 $(BUILTIN_REGISTRY)$(DELIM)$(FUNCNAME).bdat: $(DEPCONFIG) Makefile
 	$(Q) $(call REGISTER,$(APPNAME),$(FUNCNAME),$(THREADEXEC),$(PRIORITY),$(STACKSIZE))
 

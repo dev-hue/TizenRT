@@ -1,0 +1,14 @@
+#
+# For a description of the syntax of this configuration file,
+# see kconfig-language at https://www.kernel.org/doc/Documentation/kbuild/kconfig-language.txt
+#
+
+config EXAMPLES_ICE_MAKER_TFMICRO
+	bool "\"Ice maker\" TF Micro example"
+	default n
+	---help---
+		Enable the \"Ice maker\" TF Micro example
+
+config USER_ENTRYPOINT
+	string
+	default "tfmicro_ice_maker_main" if ENTRY_ICE_MAKER_TFMICRO

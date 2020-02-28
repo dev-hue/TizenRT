@@ -1,0 +1,3 @@
+config ENTRY_TFMICRO
+	bool "\"Ice maker\" TF Micro example"
+	depends on EXAMPLES_ICE_MAKER_TFMICRO
